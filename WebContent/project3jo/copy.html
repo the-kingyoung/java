@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="common.js"></script>
+    <title>main</title>
+</head>
+<style>
+    .main_first {
+    width: 100%;
+    height: 81vh;
+    position: relative;
+    overflow: hidden;
+    }
+    .main_first .mo_none { position: absolute; width: 100%; height: 100%; z-index: 99;}
+    .main_first iframe {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0vh;
+    }
+    .main_first .ytp-title {
+        display: none !important;
+    }
+
+#header, #container, #content {position: relative;}
+/* 텍스트 앞 점 제거 */
+ul li {list-style-type:none; }
+/* 밑줄제거 */
+a {text-decoration:none}
+
+/* 메인-상단-상단 설정 */
+
+/* 메인-상단-상단 범위 설정 */
+#userMenu {width: 1050px;margin: 0 auto;}
+/* 글자 간격 설정 */
+#userMenu * {font-family: noto sans;font-weight: 400;letter-spacing: -.3px;} 
+/* 로그인,회원가입,공지사항 오른쪽으로 이동 */
+#userMenu .list_menu { float: right;}
+/* 로그인,회원가입,공지사항 한줄 정렬 */
+#userMenu .menu {position: relative;z-index: 400;float: left;}
+/* 회원가입 텍스트 보라색 설정 */
+#userMenu .menu_join .link_menu {color: #5f0080;} 
+/* 로그인,회원가입,공지사항 글자 사이 | 설정 */
+#userMenu .menu:after {content: "";float: right;width: 1px;height: 13px;margin-top: 12px;background-color: #d8d8d8;}
+/* 로그인 후 설정 */
+#userMenu:after {content: "";display: block;overflow: hidden;width: 100%;height: 0;font-size: 0;text-indent: -9999px;}
+/* 로그인,회원가입,공지사항 위치 설정  z-index:쌓임 순서를 적용 */
+#userMenu .menu {position: relative;z-index: 400;float: left;}
+/* 로그인, 회원가입 간격 조정 */
+#userMenu .none_sub .link_menu { padding-right: 10px;}
+/* 로그인,회원가입,공지사항 오른쪽 공백 생성 */
+#userMenu .link_menu {float: left;height: 37px;padding: 0 22px 0 10px;color: #333;line-height: 35px;white-space: nowrap;}
+/* 아래 화살표 표시(로그인 후 마이페이지, 공지사항) */
+#userMenu .menu:before {content: "";position: absolute;right: 11px;top: 16px;width: 8px;height: 5px;background: url(https://res.kurly.com/pc/ico/1908/ico_down_8x5.png) no-repeat 0 0;}
+/* 아래 화살표 로그인 전 삭제 */
+#userMenu .none_sub:before, #userMenu .lst:after {display: none;}
+/* 공지사항 하위 리스트 설정 */
+#userMenu .lst .sub {left: auto;right: 0;}
+/* 로그인 전,후 로그인,회원가입,공지사항 텍스트 위치 설정 */
+*, *:after, *:before {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin: 0;padding: 0;}
+/* 공지사항 하위 리스트 안보이게 설정 */
+.sub {display:none; position: absolute;left: 0;top: 30px;width: 90px;padding: 5px 5px;border: 1px solid #ddd;background-color: #fff; opacity:0;}
+/* 공지사항 마우스 hover 시 하위 리스트 보임 설정 */
+#userMenu li:hover .sub{display:block; opacity:1;}
+/* 공지사항 하위 리스트 텍스트 설정 */
+#userMenu .sub a {font-size: 12px;color: #404040;line-height: 24px;white-space: nowrap;}
+
+/* 메인-상단-중단 로고 */
+
+/* 메인-상단-중단 로고 범위 설정 */
+#headerLogo{position:relative;width:1050px;height:63px;margin:0 auto}
+/* 로고 위치 설정 */
+#headerLogo .logo{position:absolute;left:50%;bottom:6px;width:200px;height:79px;margin-left:-100px}
+/* 로고 크기 설정 */
+#headerLogo .logo img{display:block;width:103px;height:79px;margin:0 auto}
+#headerLogo .logo #gnbLogoContainer {margin:0 auto}
+
+/* 메인-상단-하단 메뉴 */
+/* 전체카테고리,이벤트1,2,3 위치, 쌓임, 크기 설정 */
+#gnb .gnb_kurly{position:relative;z-index:300;min-width:1050px;background-color:#fff;font-family:'Noto Sans';letter-spacing:-0.3px}
+/* 메인-중단 화면 경계 라인 설정 */
+#gnb .gnb_kurly:after{content:"";position:absolute;z-index:299;left:0;top:56px;width:100%;height:9px;background:url(https://res.kurly.com/pc/service/common/1902/bg_1x9.png) repeat-x 0 100%}
+/* 전체카테고리, 이벤트1,2,3 텍스트 위치 재설정*/
+#gnb .inner_gnbkurly{position:relative;width:1050px;height:56px;margin:0 auto}
+
+/* 메인-상단-하단 gnb메인 */
+#gnb .gnb_main{overflow:hidden;width:1050px;margin:0 auto}
+/* 검색창 정렬*/
+#gnb .gnb_main .gnb{float:left;width:100%}
+/* 카테고리, 이벤트123 옆으로 정렬 */
+#gnb .gnb_main .gnb li{float:left}
+/*#gnb .gnb_main .gnb .lst{background:none}*/
+/* 카테고리, 이벤트123 간격 정렬 */
+#gnb .gnb_main .gnb a{overflow:hidden;float:left;width:129px;height:55px;padding:16px 0 0;font-size:16px;color:#333;line-height:20px;text-align:center}
+/* 카테고리, 이벤트123 폰트 진하기 변경 */
+#gnb .gnb_main .gnb a .txt{font-weight:700}
+/* 카테고리, 이벤트123 hover 텍스트 보라색 */
+#gnb .gnb_main .gnb a:hover, #gnb .gnb_main .gnb a.on{font-weight:700;color:#5f0080}
+/* 카테고리, 이벤트123 hover 아래 밑줄 */
+#gnb .gnb_main .gnb a:hover .txt{border-bottom:1px solid #5f0080}
+/* 카테고리, 이벤트123 정렬 */
+#gnb .gnb_main .menu1 a{width:168px;padding-left:19px}
+/* 카테고리 옆 3줄 아이콘 추가 */
+#gnb .gnb_main .menu1 .ico{float:left;width:16px;height:14px;margin:4px 14px 0 0;background:url(https://res.kurly.com/pc/service/common/1908/ico_gnb_all_off.png) no-repeat}
+/* 카테고리 옆 3줄 아이콘 hover 보라색 변경 */
+#gnb .gnb_main .menu1 a.on .ico, #gnb .gnb_main .menu1 a:hover .ico{background:url(https://res.kurly.com/pc/service/common/1908/ico_gnb_all.png) no-repeat 0 0}
+/* 카테고리, 아이콘 텍스트 위치, 진하기 변경, 밑줄 삭제 */
+#gnb .gnb_main .menu1 a.on .txt, #gnb .gnb_main .menu1 a:hover .txt, #gnb .gnb_main .menu1 .txt{float:left;font-weight:700;border-bottom:0}  
+
+/* 메인-상단-하단 검색창 */
+/* 검색창 위치 설정 */
+#gnb .gnb_search{position:absolute;right:108px;top:10px;width:238px}
+/* 검색창, 돋보기 크기,색 변경*/
+#gnb .gnb_search .inp_search{width:238px;height:36px;padding:0 50px 0 20px;border:1px solid #f7f7f6;border-radius:18px;background-color:#f7f7f7;font-family: 'Noto Sans';font-weight:400;font-size:12px;color:#666;line-height:16px;outline:none}
+/* 돋보기 아이콘 위치, 크기 설정 */
+#gnb .gnb_search .btn_search{position:absolute;right:10px;top:3px;width:30px;height:30px}
+
+/* 메인-상단-하단 장바구니아이콘 */
+/* 장바구니 텍스트 위치 설정 */
+#gnb .cart_count{position:absolute;right:-6px;top:10px}
+#gnb .cart_count .inner_cartcount{text-align:center;font-weight:400}
+/* 장바구니 텍스트 위치에 카트 아이콘 위치 설정 */
+#gnb .cart_count .btn_cart{display:block;width:36px;height:36px;background:url(https://res.kurly.com/pc/service/common/2011/ico_cart.svg) no-repeat 50% 50%}
+/* 카트 아이콘 hover css 설정*/
+#gnb .cart_count .btn_cart:hover{background:url(https://res.kurly.com/pc/service/common/2011/ico_cart_on.svg?v=1) no-repeat 50% 50%}
+/* 메뉴, 장바구니 텍스트 감추기*/
+.screen_out {display: block;overflow: hidden;position: absolute;left: -9999px;width: 1px;height: 1px;font-size: 0;line-height: 0;text-indent: -9999px;}
+
+
+/* 메인-상단-하단 gnb서브 */
+/* 서브메뉴 숨기기 */
+#gnb .gnb_sub{display:none;overflow:hidden;position:absolute;z-index:301;left:0;top:55px;width:213px;padding-top:1px}
+#gnb .inner_gnbkurly:hover .gnb_sub {display:block; opacity:1;}
+/*#gnb:hover .gnb_sub {display:block; opacity:1;}
+#gnb li:hover + #gnb_sub .menu {display:block; opacity:1;}
+#userMenu li:hover .sub{display:block; opacity:1;}*/
+
+/* 서브메뉴창 border라인 생성 */
+#gnb .gnb_sub .inner_sub{width:100%;border:1px solid #ddd;background:url(https://res.kurly.com/pc/service/common/1908/bg_gnb_sub_v3.png) repeat-y 0 0}
+/* y축 자동 조정 */
+#gnb .size_over{overflow-x:hidden;overflow-y:auto}
+/* 서브메뉴창 크기 고정 */
+#gnb .gnb_sub .gnb_menu{width:219px}
+/* 서브메뉴 열 크기 고정, 텍스트 왼쪽 고정 */
+#gnb .gnb_sub .gnb_menu li{width:100%;text-align:left}
+
+#gnb .gnb_sub .gnb_menu li:first-child{padding-top:0}
+/* 서브메뉴 열 높이 고정, 자르기 */
+#gnb .gnb_sub .menu{display:block;overflow:hidden;width:100%;height:40px;padding:8px 0 0 14px;cursor:pointer}
+
+#gnb .gnb_sub .gnb_menu li:first-child .menu{height:39px;padding-top:7px}
+#gnb .gnb_sub .current .menu{background:#f7f7f7}
+#gnb .gnb_sub .current .txt,
+#gnb .gnb_sub .menu.on.off:hover .txt,
+ #gnb .gnb_sub .menu.on .txt{font-weight:700;color:#5f0080}
+/* 서브메뉴창 텍스트 왼쪽 고정, 너비,높이 고정 */  
+#gnb .gnb_sub .ico{float:left;width:24px;height:24px}
+/* 서브메뉴창 이미지 크기 고정 */
+#gnb .gnb_sub .ico img{width:24px;height:24px}
+/* 이미지(흑백) 보이기 */
+#gnb .gnb_sub .ico .ico_off{display:block}
+/* 이미지(컬러) 숨기기 */
+#gnb .gnb_sub .ico .ico_on{display:none}
+/* 서브메뉴 열 hover => 이미지(흑백) 숨기기 */
+#gnb .gnb_sub .current .ico_off,
+  #gnb .gnb_sub .menu.on .ico_off,
+#gnb .gnb_sub .menu:hover .ico_off{display:none}
+/* 서브메뉴 열 hover => 이미지(컬러) 보이기 */
+#gnb .gnb_sub .current .ico_on,
+  #gnb .gnb_sub .menu.on .ico_on,
+#gnb .gnb_sub .menu:hover .ico_on{display:block}
+/* 서브메뉴 열 텍스트 수정*/
+#gnb .gnb_sub .txt{float:left;padding:0 4px 0 10px;font-weight:400;font-size:14px;color:#333;line-height:22px;white-space:nowrap}
+
+/*#gnb .gnb_sub .sub_menu{position:absolute;z-index:0;left:200px;top:0;width:248px;height:100%;padding:0 0 0 20px;background:url(https://res.kurly.com/images/common/bg_1_1.gif) repeat 0 0;opacity:0;transition:opacity 0.2s;}*/
+#gnb .gnb_sub .sub_menu{display:none;position:absolute;z-index:0;left:200px;top:0;width:248px;height:100%;padding:0 0 0 20px;background:url(https://res.kurly.com/images/common/bg_1_1.gif) repeat 0 0;opacity:0;transition:opacity 0.2s;}
+#gnb .gnb_sub .sub_menu li:first-child{padding-top:11px}
+#gnb .gnb_sub .sub_menu .sub{display:block; overflow:hidden;height:40px;padding-left:20px;font-size:14px;color:#333;line-height:18px;cursor:pointer;}
+#gnb .gnb_sub .sub_menu .sub:hover .name{border-bottom:1px solid #5f0080;font-weight:700px;color:#5f0080}
+#gnb .gnb_sub .sub_menu .sub.on{font-weight:700;color:#5f0080}
+#gnb .gnb_sub .inner_sub:hover .sub_menu>a {display:block;opacity:1;}
+/*#gnb .gnb_sub{display:none;overflow:hidden;position:absolute;z-index:301;left:0;top:55px;width:213px;padding-top:1px}
+#gnb .inner_gnbkurly:hover .gnb_sub {display:block; opacity:1;}
+#userMenu li:hover .sub{display:block; opacity:1;}*/
+
+#gnb .gnb_sub .current .sub_menu{z-index:1;opacity:1;transition:opacity 0.5s}
+
+/* 메인-하단-상단 */
+/* footer 기본 설정 */
+#footer {width: 1050px;margin: 0 auto;padding-bottom: 60px;font-weight: 400;letter-spacing: -.2px;}
+
+/* 메인-하단-상단-왼쪽-문의사항 설정*/
+#footer .cc_call {padding-top: 20px;}
+#footer .inner_footer {overflow: hidden;padding-bottom: 20px;}
+#footer .footer_cc {float: left;width: 534px;}
+#footer .cc_call {padding-top: 20px;}
+#footer .tit_cc {padding: 29px 0 2px;font-weight: 700;font-size: 20px;color: #333;line-height: 24px;}
+#footer .cc_view {overflow: hidden;padding-top: 16px;}
+#footer .cc_call .tit {padding-top: 4px;font-weight: 800;font-size: 28px;color: #333;line-height: 36px;letter-spacing: -.5px;white-space: nowrap;}
+#footer .cc_view .tit {float: left;width: 140px;margin-right: 16px;}
+#footer .footer_cc .list {font-size: 14px;color: #333;line-height: 22px;letter-spacing: -.2px;}
+#footer .footer_cc .list dt {display: block;}
+#footer .footer_cc .list dd {color: #999;}
+
+/* 톡 문의, 1:1 문의 보더라인, 텍스트, 위치 설정*/
+#footer .cc_kakao .tit, #footer .cc_qna .tit {height: 40px;padding-top: 7px;margin-top: 3px;border: 1px solid #e3e3e3;border-radius: 3px;font-weight: 700;font-size: 14px;color: #333;line-height: 22px;text-align: center;}
+
+/* 메인-하단-상단-오른쪽-회사소개 설정 */
+#footer .company {float: left;padding-top: 29px;font-size: 12px;color: #999;line-height: 20px;}
+#footer .company .list {overflow: hidden;width: 100%;padding-bottom: 29px;}
+#footer .company .list li {float: left;padding-right: 16px;}
+#footer .company .list .link {font-size: 14px;color: #333;line-height: 18px;}
+#footer .company .bar {padding: 0 4px 0 3px;}
+#footer .company .link {color: #5f0080;}
+#footer .company .copy {display: block;padding-top: 16px;font-style: normal;font-size: 10px;color: #949296;line-height: 22px;letter-spacing: 0;}
+#footer .company .list .emph {font-weight: 700;}
+
+
+/* 메인-하단-상단-오른쪽-sns아이콘 설정 */
+#footer .list_sns .lst {margin-right: 0;}
+#footer .list_sns {float: left;padding-top: 16px;}
+#footer .list_sns li {float: left;}
+#footer .list_sns .link_sns {display: block;width: 30px;height: 30px;margin-right: 10px;vertical-align: top;}
+
+/* 메인-하단-하단 설정 */
+#footer .footer_link {overflow: hidden;padding-top: 19px;border-top: 1px solid #eee;letter-spacing: 0;}
+#footer .authentication {float: left;padding-top: 3px;}
+#footer .mark {float: left;width: 267px;}
+/* footer 하단 div 크기 조절 */
+#footer .mark .logo {float: left;width: 34px;height: 34px;margin-right: 10px;}
+/* footer 하단 텍스트 설정 */
+#footer .mark .txt {float: left;padding-top: 1px;font-size: 10px;color: #999;line-height: 16px;letter-spacing: -.5px;white-space: nowrap;}
+#footer .lguplus {width: 428px;}
+/* 안전구매 로고 설정 */
+#footer .lguplus .logo {width: 102px;height: 34px;}
+
+/* 텍스트 설정 */
+h2 {display: block;font-size: 1.5em;margin-block-start: 0.83em;margin-block-end: 0.83em;margin-inline-start: 0px;margin-inline-end: 0px;font-weight: bold;}
+h3 {display: block;font-size: 1.17em;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;font-weight: bold;}
+dl {display: block;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;}
+dd {display: block;margin-inline-start: 40px;}
+div, th, td, li, dt, dd, p {word-break: break-all;}
+/* 이미지 설정 */
+img {border: 0;}
+img, video, canvas {max-width: 100%;}
+</style>
+<body>
+
+</body>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+   
+//
+
+</script>

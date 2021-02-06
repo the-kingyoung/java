@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//
+
+</script>
+</head>
+<body> 
+<!-- document.body.innerHTML : 호출해서 확인할수도, 수정할수도 있다. 
+ 	 css에서 사용하는 선택자를 이용해서 DOM객체를 동적으로 값을 변경할 수 있다.
+	 document.querySelector("선택자") : 하나일때
+	 ex) document.querySelector("h1").innerHTML = "안녕";
+	 document.querySelectorAll("선택자") : 여러개일때
+	 ex) document.querySelector("input[type=text]")[0].value="himan";
+	 	 document.querySelector("input[type=text]")[1].value="7777";-->
+	 
+   <h2></h2>
+</body>
+<script type="text/javascript">
+/* 
+[하] 1. if문, if else문,switch문, for문/while 기본형식
+		 	if(조건){}
+		 	if(조건1){
+		 		
+		 	}else if(조건2){
+
+		 	}
+		 	switch(데이터){
+		 	case 데이터1일때 :
+		 		처리할 내용
+		 		break;
+		 	case 데이터2일때 :
+		 		break;
+		 	default : 
+		 		위에 선언한 경우 이외 처리
+		 	}
+		 	
+		 	
+		 2)	for(초기;반복조건;증감연산자){
+				
+		 	} 
+		 	
+		 	while(반복조건){}
+		 	do{
+		 		
+		 	}while(반복조건);
+		 	for(단위객체 : 배열)(X)
+		 	for(var 인덱스값 in 배열){
+		 		배열[인덱스할당변수]
+		 	}
+		 	
+		 	for(var 속성할당변수 in 객체){
+		 		객체[속성할당변수] : 속성과 할당 속성값까지 확인
+		 	}
+		 	배열명.forEach(function(단위객체, index변수, 배열){
+		 		
+		 	})
+		 */
+
+//[하] 3. 3 * 3 테이블을 생성해보세요 
+var show1 = "<table width='30%' border>";
+	//변수 +="추가할 문자데이터"; 문자열데이터를 누적해서 저장 처리
+	//변수 += 숫자; 숫자 누적해서 합산처리.
+	show1 += "<col width='33%'/><col width='33%'/><col width='33%'/>"
+	
+	show1+="<tr>";
+	show1+="<td>1</td>";
+	show1+="<td>2</td>";
+	show1+="<td>3</td>";
+	show1+="</tr>"
+	show1+="<tr>";
+	show1+="<td>4</td>";
+	show1+="<td>5</td>";
+	show1+="<td>6</td>";
+	show1+="</tr>"	
+	show1+="<tr>";
+	show1+="<td>7</td>";
+	show1+="<td>8</td>";
+	show1+="<td>9</td>";
+	show1+="</tr>"
+	show1+="</table>"
+	// document.body.innerHTML : 현재 body에 태그로 처리할 내용을 할당 호출처리
+	// 만들어진 html 태그 코드를 body에 동적으로 저장처리
+
+	for(var cnt=1; cnt<=9; cnt++){
+		if(cnt%3==1){
+			show1+="<tr>"
+		}
+		show1 += "<td>"+cnt+"</td>"
+		if(cnt%3==0){
+			show1 += "</tr>";
+		}
+	}show1 +="</table>"
+
+	document.body.innerHTML += show1;
+	
+	//==================================================
+		var col=5;
+		var row=5;
+		var tot=col*row;
+	for(var cnt=1; cnt<=col*row; cnt++){
+		if(cnt%row==1){
+			show1+="<tr>"
+		}
+		show1 += "<td>"+cnt+"</td>"
+		if(cnt%row==0){
+			show1 += "</tr>";
+		}
+	}
+	
+	show1 +="</table>"
+
+	document.body.innerHTML += show1;
+
+//[중] 행과 열의 값을 각각 받아서 테이블을 생성해보세요! 특정한 셀(td)(랜덤)은 배경색을 노랑색
+//0.0<=Math.random()<1.0
+//(int)(Math.random()*경우의수+시작번호) - java
+//parseInt(Math.random()*경우의수+시작번호) - js
+//Math.floor(Math.random()*경우의수+시작번호) - js
+
+   var show = "<table width='30%' border>";
+   var col=prompt("열의 값을 입력하세요!","1");
+   var row=prompt("행의 값을 입력하세요!","1");
+   var tot=col*row;
+   var ranCell = parseInt(Math.random()*tot+1);
+   // style='background-color:yellow;'
+   var cnt = 1;
+   for(var rowCnt=1;rowCnt<=row;rowCnt++){ // 행을 위한 반복 처리.
+      show+="<tr>";
+      for(var colCnt=1;colCnt<=col;colCnt++){//열을 위한 반복 처리.
+         if(ranCell==cnt){
+            show+="<td style='background-color:yellow;'>";
+         }else{
+            show+="<td>";
+         }
+         
+         show+=(cnt++)+"</td>";
+      }
+      show+="</tr>";
+   }
+   show += "</table>";
+   document.body.innerHTML = show;
+
+
+ //
+ /*
+ 		var show = "<table width='30%' border>"
+		var col=prompt("열의 값을 입력하세요!","1");
+		var row=prompt("행의 값을 입력하세요!","1");
+		var tot=col*row;
+		var cnt=1;
+		
+		for(var rowCnt=1; rowCnt<=row; rowCnt++){//행을 위한 반복 처리
+			show+="<tr>";
+			for(var colCnt=1; colCnt<=col;colCnt++){//열을 위한 반복처리
+				show+="<td>"+(cnt++)+"</td>";
+			}
+			show+="</tr>";
+		}
+		show+="</table>"
+		document.body.innerHTML += show;
+ 
+ */
+
+</script>

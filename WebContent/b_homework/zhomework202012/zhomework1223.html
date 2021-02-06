@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Homework 1223</title>
+</head>
+<body>
+<!-- 
+html
+1. 	텍스트를 변경하는 코드에서 계층적 적용이라는 말의 의미를 설명하고, 
+	이택릭체로 진하게 처리하는 안녕하세요 코드를 만들어 출력해보세요.-->
+	<b>
+		<i>안녕하세요</i>
+	</b><br>
+	<hr>
+<!--
+2. 	텍스트 꾸미기 코드의 사선과 언더라인, 첨자에 관련하여 기술하세요.
+	사선 : 글씨가 기울어진것
+	언더라인 : 밑줄이 그어지는것
+	첨자 : 기본 글자보다 작은 글자가 위에 붙거나 아래 붙게 하는것
+	
+3. 	블럭과 인라인 태그의 의미와 코드를 분류하여 기술하고, 해당 내용에 간단한 예제를 만드세요.
+	
+	- 태그는 줄바꿈을 하는지 안하는지로 구분을 할 수 있다.
+		1) 블록 태그 : p, h1, div, ul		==>태그를 사용하고 난 뒤에 줄바꿈이 일어난다.
+		2) 인라인 태그 : 텍스트 꾸미기 관련 태그, a, img, span ==>태그를 사용하고 난 뒤에 줄바꿈이 일어나지않는다.
+
+4. 	이미지의 기본 속성을 기술하고, 좋아하는 애완 동물의 사진을 출력하는 코드를 작성하세요.-->
+	<img title="하치" alt="" src="hachi1.jpg" width=150; height=200;>
+
+<!--
+5. 	웹에서 상대적 경로와 절대적 경로/외부 페이지의 차이를 기본적인 예제를 통하여 설명하세요.
+	-이부분 다시 한번 설명 듣기.
+-->
+
+  <h2>상대 경로</h2>
+  <img src="hachi1.jpg" width="150" height="200">
+
+  <h2>절대 경로</h2>
+  <img src="/javaexp/a02_html/hachi1.jpg"width="150" height="200"/>
+
+<!-- 
+6. 	간단한 맛집 투어라는 홈페이지를 h1, p, hr, img를 이용해서 나타내세요. img는 외부페이지 링크를 통해서 처리하세요.
+-->
+<h1>간단한 수원 맛집 투어!</h1>
+<img src ="https://post-phinf.pstatic.net/MjAxNzA1MDhfMTg0/MDAxNDk0MjIwMzQyMTc2.HotRR6xQiai-Alz2o8fU69Eezr_WZV71HAMMK6M6E6cg.om8WyYPIV5iuFzjAH4fRrTECxieXsPtbGGDTxabP0Qkg.JPEG/0.jpg?type=w1200"width="200" height="200">
+<p>
+1. 수원 통닭거리 치킨!<br>
+2. 수원 왕갈비!</p>
+<!--
+7. 	ul/ol/dt의 차이점과 속성을 기술하세요.
+	ul : unordered line의 줄임말로 순서가 아닌 모양으로 나타낸 리스트
+	ol : ordered line의 줄임말로 숫자 또는 알파벳으로 순서를 나타낸 리스트
+	dl : definition list의 줄임말로 <dt><dd>로 이루어진 계층을 갖는 리스트
+	
+8. 	계층형으로 취미 생활을 종류/타이틀을 넣고, 경험 내용을 ul, ol, dt를 이용하여 계층형으로 처리하는 페이지를 만드세요. -->
+	<br>
+	<h3>취미 생활</h3>
+	<hr>
+	<ul>
+		<li>야구 경기 시청
+			<ol>
+				<li>LG경기 있을때 tv중계보기</li>
+				<li>KT경기 있을때 tv중계보기</li>
+				<li>KT 홈경기를 LG랑 할 때 직관 가기</li>
+			</ol>	
+		<li>피아노 치기
+			<ol>
+				<li>쇼팽곡 끄적거리기</li>
+				<li>모차르트 곡 치기</li>
+				<li>리스트 곡 끄적거리기</li>
+			</ol>
+		<li>축구 하기
+			<ol>
+				<li>2주에 한번씩 풋살</li>
+				<li>조기축구회 나가기</li>
+			</ol>
+	</ul>
+	<hr>
+	<dl>
+		<dt><strong>취미생활을 잘 즐기고 있는가?</strong>
+		<dd>코로나로 인해 피아노 치는것만이 유일하게 허락된 취미 생활이다.
+	</dl>
+</body>
+</html>

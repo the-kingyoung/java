@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type ="text/css" rel="stylesheet" href="cssfile.css">
+</head>
+<body>
+<div>
+<h3>회원가입</h3>
+<div id="frame1">
+<div class="frame3">
+<table class="allTable">
+<tbody>
+<tr><th>아이디</th><td><input type="text" maxlength="16" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"></td><td><a href="#" class="btn" onclick="alert('사용이 가능합니다.')">중복확인</a></td></tr>
+<tr><th>비밀번호</th><td><input type="password" maxlength="20" placeholder="비밀번호를 입력해주세요"></td></tr>
+<tr><th>비밀번호확인</th><td><input type="password" maxlength="20" placeholder="비밀번호를 한번 더 입력해주세요"></td></tr>
+<tr><th>이름</th><td><input type="text" maxlength="5" placeholder="이름을 입력해주세요"></td></tr>
+<tr><th>이메일</th><td><input type="text" placeholder="ex)abc123@fff.com"></td><td><a href="#" class="btn" onclick="alert('사용이 가능합니다.')">중복확인</a></td></tr>
+<tr><th>휴대폰</th><td><input type="text" placeholder="숫자만 입력해주세요"></td></tr>
+<tr><th>주소</th><td><a href="#" id="addressSearch" onclick="window.open('http://localhost:7080/javaexp/project3jo/address.html','주소검색','width=400px,height=400px,location=no,status=no,scrollbars=no');"><span id="addressNo" >주소검색</span></a></td></tr>
+<tr><th>성별</th><td><label><input type="radio" name="gender" value="1">남자</label>
+				<label><input type="radio" name="gender" value="2">여자</label>
+				<label><input type="radio" name="gender" value="3">선택안함</label></td></tr>
+
+<tr><th>생년월일</th><td><div class="birth">
+						<input type="text" maxlength="4" placeholder="YYYY">
+						<input type="text" maxlength="2" placeholder="MM">
+						<input type="text" maxlength="2" placeholder="DD"></div></td></tr>
+<tr><th>추가입력 사항</th><td><label><input type="radio" name="add" value="1">추천인 아이디</label>
+							<label><input type="radio" name="add" value="2">참여 이벤트명</label></td></tr>	
+							
+										
+<!-- <tr><th>이용약관동의</th><td><div class="every1"><label><input type="radio" name="agree1">전체동의합니다.</label> -->
+<!-- 				<p>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 없습니다.</p></div></td></tr> -->
+<!-- <tr><th></th><td><div class="every"><label><input type="radio" name="agree2">이용약관 동의(필수)</label><a href="#">약관보기</a></div></td></tr> -->
+<!-- <tr><th></th><td><div class="every"><label><input type="radio" name="agree3">개인정보처리방침 동의(필수)</label><a href="#">약관보기</a></div></td></tr> -->
+<!-- <tr><th></th><td><div class="every"><label><input type="radio" name="agree4">개인정보처리방침 동의(선택)</label><a href="#">약관보기</a></div></td></tr> -->
+<!-- <tr><th></th><td><div><label><input type="radio" name="agree5">무료배송, 할인쿠폰 등 혜택/정보 수신 동의(선택)</label></div></td></tr> -->
+<!-- <tr><th></th><td><div><label><input type="radio" name="agree6">SMS</label><label><input type="radio" name="agree6">이메일</label> -->
+<!-- 				<p>동의시 한달간[5% 적립]+[무제한 무료배송](첫 주문 후 적용)</td></tr> -->
+<!-- <tr><th></th><td><label><input type="radio" name="agree7">본인은 만 14세 이상입니다.(필수)</label></td></tr> -->
+</tbody>
+</table>
+<div class="form_footer">
+	<a href="madelogin.html" class="btn_last" onclick="alert('가입이 완료되었습니다')">가입하기</a>
+</div>
+<!-- <a href="madelogin.html" class="complete"><span class="text">가입하기</span></a> -->
+
+</div>
+</div>
+</body>
+</html>

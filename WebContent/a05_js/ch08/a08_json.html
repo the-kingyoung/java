@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+# trim() : 양쪽에 공백문제 제거 처리.
+ 
+*/
+//변수를 선언합니다.
+var text = '  text  ';
+//출력합니다.
+var output='';
+output += '++'+text+'++\n';
+output += '++'+text.trim()+'++';
+console.log(output);
+/*
+# json 문자열 변환
+1. JSON.Stringify(객체) : 객체를 문자열로 변환 처리.
+2. JSON.parse("문자열형 json") : 문자열을 json객체로 변환 처리.
+ */
+ //변수를 선언합니다.
+ var object = {
+		name : '윤인성',
+		region : '서울 특별시'
+};
+//출력합니다.
+var jdataS = JSON.stringify(object); //객체를 문자열
+console.log(jdataS);
+var copy = JSON.parse(jdataS); //문자열을 객체화
+//출력합니다.
+console.log(copy.name + ' : '+ copy.region);
+//ex) 물건명,가격,갯수,json 객체 선언, 문자열로 출력하고, 다시 객체를 만들어 속성 생산지를 추가하여 출력하세요,.
+var product = {
+		pname : '사과',
+		price : 2000,
+		cnt : 5
+};
+var jProduct =  JSON.stringify(product);
+console.log(jProduct);
+var rProduct = JSON.parse(jProduct);
+rProduct.loc="충주";
+console.log(rProduct);
+
+//ex2).위 내용을 배열 변수로 만들어 물건정보 3개가 들어간 배열 객체를 만들고, 문자열로 변환하여 출력하세요.
+var plist=[product];
+plist.push({name:"딸기",price:12000,cnt:3});
+plist.push({name:"오렌지",price:3000,cnt:4});
+var plistS = JSON.stringify(plist);
+console.log(plistS);
+var plistCpy = JSON.parse(plistS);
+console.log(plistCpy);
+
+
+
+</script>
+</head>
+<body>
+   <h2></h2>
+</body>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+   document.querySelector("h2").innerHTML="js 시작^^";
+//
+
+</script>

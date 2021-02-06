@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+# 시간간격으로 수행하는 내장 함수.
+1. 기본 형식.
+	setInertval(function(){ 해당마다 수행할 내용. },1/1000);
+	clearInterval(변수); 메모리해제..
+*/
+//
+	function start01(){
+		alert('시작');
+ 		var obh4 = document.querySelector("h4");
+ 		var cnt=0;
+ 		var set01 = setInterval(function(){
+ 			obh4.innerHTML=cnt;
+ 			if(cnt==1000){	// 1000일때, 반복 종료..
+ 				clearInterval(set01);
+ 			}
+ 			cnt++
+ 		},10);//0.1초 마다 번호
+ 	}
+	//ex)카운트 다운 10~0까지 카운트다운 클릭시, 출력 0이 될때, 발사~~
+	function start02(){
+		var cnt=10;
+		var cntdown = document.querySelector("#cntdown");
+		var set = setInterval(function(){
+			cntdown.innerHTML=cnt;
+			cnt--;
+			if(cnt<0){
+				alert("발사");
+				clearInterval( set );
+			}
+		},1000);
+	}
+
+</script>
+</head>
+<body>
+   <h2></h2>
+   <h3 onclick="start01()">시작!!</h3>
+   <h4></h4>
+   <h3 onclick="start02()">카운트 다운</h3>
+   <h4 id="cntdown"></h4>
+</body>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+   document.querySelector("h2").innerHTML="js 시작^^";
+//
+
+</script>

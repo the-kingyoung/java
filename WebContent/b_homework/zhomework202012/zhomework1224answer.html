@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*
+	css
+	선택자 : {속성:속성값}
+	*/
+	h2{background-color:orange;}
+</style>
+<script type="text/javascript">
+	function call(obj){
+		//클릭한 h2문자열을 변경 처리.
+		obj.innerHTML = "클릭 되었습니다.";
+	}
+	function chColor(obj,idx){//h1==>obj, h2==>obj
+		//클릭한 객체를 첫번째 매개변수값을 받는다.
+		var colors = ['red','orange','yellow','green','blue','navy']
+		//this ==> obj로 할당.
+		//클릭한 객체의 속성 style를 이용해서 배경색상이나 타이틀 문자열을 변경 처리한다.
+		obj.style.backgroundColor=colors[idx]; //받은 idx값을 기준으로 데이터를 처리.
+	}
+</script>
+</head>
+<body>
+<!--
+1. 웹 페이지의 구성요소 3가지는 기술하고, 간단하게 해당 구성요소를 이용하여 화면을 처리해보세요.
+    	html :	웹화면의 기본적인 태그를 통한 구성(정적 화면)
+		css	 :	기본적인 태그를 확장해서 보다 여러가지 속성값을 설정(정적 속성 확장/동적 속성 추가)
+		js	 :	기본태그를 dom(document object model)로 객체화하여 여러가지 동적으로 속성을 변경하거나
+				추가화면을 만드는 프로그래밍.
+				
+==>		-계층형 구성요소 : dtd선언, html, head(meta, title...), body
+		-프로그램적(front end)단 구성 요소 : 기본태그, css, javascript						
+-->
+<h2 onclick="call(this)">안녕하세요</h2> <!-- 기본태그 -->
+<!--
+2. h1 ~ h6 까지 초기에는 색상 정보만 출력하다가 외부 파일로
+   click이벤트로 클릭시마다, 빨, 주, 노, 초, 파, 남 색상으로
+   배경색상이 변경되게 처리하세요.
+   
+   this : java에서도 객체지향적인 프로그램에서 현재 대상이 되는 객체를 말한다.
+   			상속과 관계에서 상위 객체와 구분할 때, 지역변수와 구분할 대 사용
+   -->
+   <h1 onclick="chColor(this, 0)">빨</h1>
+   <!-- js는 모든 태그를 객체 개념으로 사용한다. h1객체의 클릭을 통해서 클릭한 이 객체 즉 h1을 지칭하고,
+   그 객체의 모든 속성을 함께 함수가 호출되는 곳에 전송한다.
+   -->
+   <h2 onclick="chColor(this, 1)">주</h2>
+   <h3 onclick="chColor(this, 2)">노</h3>
+   <h4 onclick="chColor(this, 3)">초</h4>
+   <h5 onclick="chColor(this, 4)">파</h5>
+   <h6 onclick="chColor(this, 5)">남</h6>
+   <!--
+3. h1~h6, p, hr, br을 활용하여, internet에서 개념을 검색하여
+   설명 내용이 들어 있는 페이지를 만드세요.-->
+   <h2>프런트 엔드와 백엔드 비교</h2>
+   <p> 일반적으로 어?쩌구 저쩌구
+   </p>
+
+    <!-- 
+4. 테이블의 계층 구조별 태그를 정리하고 기술하세요.
+	1) 	table : 계층구조의 최상위
+	2) 	caption : 테이블의 제목
+		thead : 테이블의 헤더
+		tbody : 테이블의 데이터 처리 부분
+		tfoot : 테이블의 최하단
+	3)	tr	: 테이블의 행단위
+	4)	th 	: 테이블의 타이틀 데이터
+	5)	td	: 테이블의 실제 데이터
+	
+	
+5. 테이블을 이용하여 database EMP테이블의 데이터리스트를 출력해보세요
+   (3row정도만 출력)-->
+   
+ <!--  
+6. 테이블이 가지고 있는 속성을 예제를 통해서 처리하세요. 
+	1) width : 테이블 전체 폭
+	2) height: 테이블 전체 높이
+	3) align : 전체화면대비 정렬 위치 left, right, center
+	4) border: cell로 구분지정.-->
+</body>
+</html>

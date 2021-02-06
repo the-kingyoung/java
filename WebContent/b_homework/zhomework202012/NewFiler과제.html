@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//
+
+</script>
+</head>
+<body>
+   <table id="tab01" align="center" border>
+   
+   </table>
+   <div id="show01"></div>
+   
+   <h1 align="center" onclick="display01()">무지개 보이기</h1>
+   <div id="show02">
+   </div>
+   
+</body>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//ex1)
+	 var singers = ["BTS", "소녀시대", "다비치"];
+	 var show1="<tr><th>번호</th><th>이름</th></tr>";
+	 for (var idx in singers){
+		 show1+="<tr><th>"+(Number(idx)+1)+"</th><td>"+singers[idx]+"</td></tr>";
+	 }
+	 document.querySelector("#tab01").innerHTML=show1;
+//
+/*
+ex2) for(초기값; 반복조건;증감연산자)
+	 for(var idx변수 in 배열)
+	 배열.forEach(function(단위객체, index,배열){})
+ */
+//ex3)
+var rainbow1 = ["빨","주","노","초","파","남","보"];
+var show2="";
+rainbow1.forEach(function(color,idx,arr){
+	show2+="<h2 align='center'>"+color+"</h2>";
+});
+document.querySelector("#show01").innerHTML=show2;
+ 
+ //ex4)
+ function display01(){
+	 var rainbow2=["red","orange","yellow","green","blue","navy","purple"];
+	 var show3="";
+	 
+	 rainbow2.forEach(function(color,idx,arr){
+		 show3+="<h2 align='center' "+"style='background:"+color+"'>"+color+"</h2>";
+	 });
+ }
+ document.querySelector("#show02").innerHTML= show3;
+ 
+</script>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+<style type="text/css">
+.huge{
+    width: 340px;
+    margin: 0 auto;/*중앙정렬하기*/
+    padding-top: 90px;
+    letter-spacing: -.6px; /*자간*/
+}
+div {
+    display: block;
+}
+.huge .login {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+.huge .write_form {
+    padding-top: 36px;
+}
+.huge .login_view {
+    text-align: center;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.huge input[type=text], .huge input[type=password] {
+    width: 88%;
+    height: 54px;
+    padding: 0 19px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    outline: none;
+}
+.huge .checkbox {
+    overflow: hidden;
+    padding-bottom: 28px;
+}
+.huge .checkbox .label_checkbox {
+    float: left;
+    margin-top: 9px;
+}
+.huge .label_checkbox {
+    position: relative;
+    padding: 0 0 3px 22px;
+    font-size: 13px;
+    line-height: 20px;
+}
+.huge .label_checkbox [type=checkbox] {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    opacity: 0;
+}
+.huge .login_search {
+    float: right;
+    padding-top: 13px;
+}
+.huge .login_search .link {
+    float: left;
+    font-size: 13px;
+}
+.btn_type1, .btn_type2 {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 54px;
+    border-radius: 3px;
+    font-size: 0;
+    text-align: center;
+}
+.btn_type1 {
+    border: 1px solid #5f0081;
+    background-color: #5f0080;
+}
+.section_login * {
+    font-family: noto sans;
+    color: #333;
+}
+.btn_type1 .txt_type, .btn_type2 .txt_type {
+    display: inline-block;
+    height: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    line-height: 51px;
+    text-align: center;
+}
+.btn_type1 .txt_type {
+    color: #fff;
+}
+.btn_type2 {
+    border: 1px solid #5f0081;
+    background-color: #fff;
+}
+.huge .btn_member {
+    margin-top: 10px;
+}
+.btn_type2 .txt_type {
+    color: #5f0081;
+}
+
+a {text-decoration:none;}
+.write { padding : 10px 13px;}
+.bar{    
+	float: left;
+    width: 1px;
+    height: 10px;
+    margin: 3px 6px 0;
+    background-color: #333;}
+    
+</style>
+</head>
+<body>
+
+<div class="huge">
+	<h3 class="login">로그인</h3>
+	<div class="write_form">
+		<div class="login_view">
+			<form>
+				<input type="text" name="inputId" size="20" value=""  placeholder="아이디를 입력해주세요">
+				<input type="password" name="password" size="20" value="" placeholder="비밀번호를 입력해주세요" style="margin-top:10px; margin-bottom:5px;"><br>
+				<div class="checkbox">
+					<label class="label_checkbox ">
+					<input type="checkbox" checked>보안접속
+					</label>
+					<div class="login_search">
+						<a href="" class="link">아이디 찾기</a>
+						<span class="bar"></span>
+						<a href="" class="link">비밀번호 찾기</a>
+					</div>
+				</div>
+				<button type="submit" class="btn_type1">
+				<span class="txt_type">로그인</span></button>
+			</form>
+			<a href="madesignup.html" class="btn_type2 btn_member">
+			<span class="txt_type">회원가입</span></a>
+		</div>
+	</div>
+</div>
+
+
+<!-- 
+a {text-decoration:none;}
+.write { padding : 10px 13px;}
+.checkboxtext {font-size: 1%; display: inline;}
+
+
+			<form>
+				<input type="text" class="write" size="20" maxlength="16" value=""  placeholder="아이디를 입력해주세요"><br>
+				<input type="password" class="write" size="20" maxlength="20" value="" placeholder="비밀번호를 입력해주세요"
+				style="margin-top:5px; margin-bottom:5px;"><br>
+				<input type="checkbox" checked><span class="checkboxtext">보안접속</span>
+				<a href="#" style="font-size:1%">아이디 찾기</a>|<a href="#" style="font-size:1%"
+				>비밀번호  찾기</a><br>
+				<input type="submit" onclick="alert('잠시만 기다려주세요.')" value="로그인"
+				style="padding:7px 75px; font-family:돋움; margin-top:10px;
+				background-color:#5f0080; color:white; border:1px solid #5f0081; border-radius : 3px;"><br>
+			</form>
+			<input type="submit" value="회원가입"
+			style="padding:7px 69px; font-family:돋움; margin-top:5px;
+			background-color:white; color:purple; border:1px solid #5f0081; border-radius : 3px;">
+ -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//입력받은 pname을 누적시키려면??
+var addPname="";	//전역변수(?)
+function prodshow(pname){	//pname이 지역변수(?)
+	addPname+=pname+" ";	//addPname에 누적처리
+	alert(addPname);
+	var tab01 = document.querySelector("#tab01");
+	//<table id="tab01">를 객체로 선택..
+	tab01.innerHTML+="<tr><td>"+pname+"</td></tr>";
+}
+//3번문제 방법1
+function prodInfo(pname, price){ //onclick="prodInfo('사과', 3000)"
+	alert(pname+":"+price);
+}
+//3번문제 방법2
+function prodInfo2(obj){	
+	// onclick="prodInfo2(this)"
+	// DOM객체를 전체 넘겼기 때문에 해당 객체가 가지고 있는 내용을 출력할 수 있다.
+	alert(obj.innerHTML);
+}
+
+</script>
+</head>
+<body>
+	<!-- ex) 클릭했을 때, 사과가 alert으로 출력되게 해보세요.
+		1) 함수를 정의
+			alert("함수호출")
+		2) h3에 onclick="정의된함수()"
+		3) 함수에 매개변수 전달하기 		함수명(매개변수)
+		4) 매개변수로 넘긴 내용 alert으로 출력 -->
+		
+<!--    [하] 2. h3로 구매할 3개를 물건으로 선언하고 각 h3 클릭시, 익명함수를 호출하여 구매할 물건을 누적시켜 alert()에 출력 처리하세요. -->
+   <h3 onclick="prodshow('사과')">사과</h3>
+   <h3 onclick="prodshow('바나나')">바나나</h3>
+   <h3 onclick="prodshow('딸기')">딸기</h3>
+   <table id="tab01" border>
+   		<tr><th>구매물건</th></tr>
+   </table>
+   
+<!-- [하] 4. 3X3테이블에 각각 물건명과 물건 가격이 표기되어 있고, 클릭시 마다 선언적 함수를 통해 물건명을 alert()을 통해 출력하세요.
+			1) 함수 정의(매개변수 물건명, 가격)
+			2) td에서 onclick="함수()" -->
+	<table width="300" height="300" border>
+		<tr><td onclick="prodInfo('사과',3000)">사과(3000원)</td>
+			<td onclick="prodInfo2(this)">바나나(4000원)</td>
+			<td onclick="prodInfo('딸기',12000)">딸기(12000원)</td></tr>
+		<tr><td onclick="prodInfo2(this)">수박(15000원)</td>
+			<td onclick="prodInfo2(this)">오렌지(2000원)</td>
+			<td onclick="prodInfo2(this)">키위(5000원)</td></tr>
+		<tr><td onclick="prodInfo2(this)">포도(15000원)</td>
+			<td onclick="prodInfo2(this)">단감(5000원)</td>
+			<td onclick="prodInfo2(this)">멜론(12000원)</td></tr>
+	
+	</table>
+<!-- [중] 5. 3X3테이블에 각각 물건명과 물건 가격이 표기되어 있고, 클릭시 마다 선언적 함수를 통해 아래 table에 추가하여 출력하게 하세요. 
+         테이블
+         no 물건명 가격 갯수 계
+
+         h3 총계 @@ 형식으로 -->
+         
+</body>
+<script type="text/javascript">
+
+
+</script>
