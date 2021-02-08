@@ -1,0 +1,96 @@
+@charset "UTF-8";
+.main_b1 {
+	background-color: black;
+}
+
+.main_b1 .main_b1_plist {
+	background-color: green;
+}
+
+.b1_title {
+	padding: 79px 0 35px;
+	background-color: blue;
+}
+
+.b1_title .title {
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 32px;
+	letter-spacing: -0.3px;
+	text-align: center;
+}
+
+.main_b1 .b1_list {
+	width: 1050px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+.b1_list .list {
+	background-color: pink;
+	width: 230px;
+	height: 500px;
+	display: inline-block;
+	vertical-align : top;
+}
+.list img{
+	width:100%; transition:0.5s; cursor:pointer; height:220px;
+}
+.list img:hover{
+	width:105%
+}
+.ad-container{
+	width:100%;
+	height:600px;
+	background:gray;
+	margin-bottom:50px;
+	position:relative;
+}
+.ad-container img{
+	width:100%;
+	height:100%;
+}
+.btn-box{
+	position:absolute;
+	width:100%;
+	top:50%;
+}
+.btn-box::after{
+	content:"";
+	clear:both;
+	display:block;
+}
+.btn-box #left{
+	float:left;
+	margin-left:10%;
+}
+.btn-box #right{
+	float:right;
+	margin-right:10%;
+}
+.ad-container .btn-box button{
+	font-size : 30px;
+	color : white;
+	background:transparent;
+}
+button{
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	outline: 0;
+}
+.pInfo{
+	font-size: 16px;
+    line-height: 23px;
+    cursor: pointer;
+}
+.pPrice{
+	display: block;
+    padding-top: 9px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+

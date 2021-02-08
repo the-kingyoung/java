@@ -3,57 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" 
+integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link type ="text/css" rel="stylesheet" href="secondCss.css">
 <style type="text/css">
-.main_b1 {
-	background-color: black;
-}
-
-.main_b1 .main_b1_plist {
-	background-color: green;
-}
-
-.b1_title {
-	padding: 79px 0 35px;
-	background-color: blue;
-}
-
-.b1_title .title {
-	font-weight: 700;
-	font-size: 28px;
-	line-height: 32px;
-	letter-spacing: -0.3px;
-	text-align: center;
-}
-
-.main_b1 .b1_list {
-	width: 1050px;
-	height: 500px;
-	margin: 0 auto;
-}
-
-.b1_list .list {
-	background-color: pink;
-	width: 230px;
-	height: 500px;
-	display: inline-block;
-	vertical-align : top;
-}
-.list img{
-	width:100%; transition:0.5s; cursor:pointer;
-}
-.list img:hover{
-	width:105%
-}
-
-
 
 
 </style>
 </head>
 <body>
-<!--  ㅅㅜ정 -->
-	<div>
-	
+	<div class="ad-container">
+		<img id="first" src="img/food05.jpg">
+		<div class="btn-box">
+			<button id="left" onclick="nextImg('left')"><i class="fas fa-arrow-circle-left"></i></button>
+			<button id="right" onclick="nextImg('right')"><i class="fas fa-arrow-circle-right"></i></button>
+		</div>
 	</div>
 	<!-- ===================================================================================== -->
 	<div class="main_b1">
@@ -63,15 +27,27 @@
 					<span>오늘의 추천 상품</span>
 				</h3>
 			</div>
-			<div class="b1_list" style="background-color: yellow;">
+			<div class="b1_list">
 				<div class="list" style="margin: 0px 18px 0px 30px;">
-					<img src="fishbread.png">
-					<div class="pInfo">사과</div>
-					<div class="pPrice">가격</div>
+					<img src="img/food01.jpg">
+					<div class="pInfo">아이스크림</div>
+					<div class="pPrice">8,000</div>
 				</div>
-				<div class="list" style="margin: 0px 18px 0px 0px;"></div>
-				<div class="list" style="margin: 0px 18px 0px 0px;"></div>
-				<div class="list" style="margin: 0px 0px 0px 0px;"></div>
+				<div class="list" style="margin: 0px 18px 0px 0px;">
+					<img src="img/food02.jpg">
+					<div class="pInfo">치킨</div>
+					<div class="pPrice">28,000</div>
+				</div>
+				<div class="list" style="margin: 0px 18px 0px 0px;">
+					<img src="img/food03.jpg">
+					<div class="pInfo">피자</div>
+					<div class="pPrice">32,000</div>
+				</div>
+				<div class="list" style="margin: 0px 0px 0px 0px;">
+					<img src="img/food04.jpg">
+					<div class="pInfo">식사권</div>
+					<div class="pPrice">50,000</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -83,20 +59,47 @@
 					<span>인기 상품</span>
 				</h3>
 			</div>
-			<div class="b1_list" style="background-color: yellow;">
+			<div class="b1_list">
 				<div class="list" style="margin: 0px 18px 0px 30px;">
-					<img src="fishbread.png">
-					<div class="pInfo">사과</div>
-					<div class="pPrice">가격</div>
+					<img src="img/food05.jpg">
+					<div class="pInfo">한정식 식사세트</div>
+					<div class="pPrice">99,000</div>
 				</div>
-				<div class="list" style="margin: 0px 18px 0px 0px;"></div>
-				<div class="list" style="margin: 0px 18px 0px 0px;"></div>
-				<div class="list" style="margin: 0px 0px 0px 0px;"></div>
+				<div class="list" style="margin: 0px 18px 0px 0px;">
+					<img src="img/food06.jpg">
+					<div class="pInfo">팬케이크</div>
+					<div class="pPrice">17,900</div>
+				</div>
+				<div class="list" style="margin: 0px 18px 0px 0px;">
+					<img src="img/food07.jpg">
+					<div class="pInfo">체리</div>
+					<div class="pPrice">50,000</div>
+				</div>
+				<div class="list" style="margin: 0px 0px 0px 0px;">
+					<img src="img/food08.jpg">
+					<div class="pInfo">딸기</div>
+					<div class="pPrice">33,000</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </body>
 <script>
-
+var imgNum=0;
+function nextImg(direction){
+	var imgObj = document.querySelector("#first");
+	if(direction=="left"){
+		imgNum <=0 ? imgNum=3 : imgNum--;
+	}else{
+		imgNum>=3 ? imgNum=0 : imgNum++;
+	}
+	switch(imgNum){
+	case 0 : imgObj.src="img/food05.jpg"; break;
+	case 1 : imgObj.src="img/food06.jpg"; break;
+	case 2 : imgObj.src="img/food07.jpg"; break;
+	case 3 : imgObj.src="img/food08.jpg"; break;
+	}
+	
+}
 </script>
 </html>
