@@ -1,15 +1,21 @@
 @charset "UTF-8";
 .main_b1 {
-	background-color: black;
+
+}
+.main_b1 hr{
+	width:1000px;
+	align : center;
+	background-color : #cd595a;
+	height:2px;
 }
 
 .main_b1 .main_b1_plist {
-	background-color: green;
+
 }
 
 .b1_title {
 	padding: 79px 0 35px;
-	background-color: blue;
+
 }
 
 .b1_title .title {
@@ -27,7 +33,7 @@
 }
 
 .b1_list .list {
-	background-color: pink;
+
 	width: 230px;
 	height: 500px;
 	display: inline-block;
@@ -42,7 +48,7 @@
 .ad-container{
 	width:100%;
 	height:600px;
-	background:gray;
+
 	margin-bottom:50px;
 	position:relative;
 }
