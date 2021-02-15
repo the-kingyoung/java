@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+		var show = document.getElementById('show');
+		var increase = document.getElementById('increase');
+		var pname = document.querySelector('[name=pname]');
+		var price = document.querySelector('[name=price]');
+		var cnt = document.getElementById('cnt');
+
+		increase.onclick = function() {
+			cnt.innerHTML = Number(cnt.innerHTML) + 1;
+			show.innerHTML = pname.value + "를" + price.value + "원에"+ 
+							Number(cnt.innerHTML) + "개 구매하여" + 
+							Number(price.value)* Number(cnt.innerHTML) + "원 입니다.";
+			console.log(cnt);
+		};
+	};
+</script>
+</head>
+<body>
+	<h3>물건명 : <input type="text" name="pname"/></h3>
+	<h3>가격 : <input type="text" name="price"/></h3>
+	<h3>갯수 : <span id="cnt">0</span></h3>
+	<button id="increase">버튼</button>
+	<h3 id="show"></h3>
+</body>
+</html>
