@@ -8,7 +8,9 @@
  
  
 */
-	window.onload = function() { //화면이 다 로딩된 이후로 처리할 이벤트
+	window.onload = function() { 
+	//화면이 다 로딩된 이후로 처리할 이벤트
+	//window.onload이벤트는 js가 하단에 선언된것과 동일한 효과를 준다.
 		document.querySelector("h2").innerHTML = "카운트 이벤트^^";
 		//순서 객체를 가져옵니다.
 		var buttonA = document.getElementById('button-a');
@@ -17,6 +19,8 @@
 		var counterB = document.getElementById('counter-b');
 		//이벤트를 연결합니다.
 		buttonA.onclick = function() {
+			//js에서 +(덧셈) 연산자는 반드시 형변환하여야 한다.
+			//		-, *, /, % 연산자는 자동 형변환되어 처리된다.
 			counterA.innerHTML = Number(counterA.innerHTML) + 1;
 		};
 		buttonB.onclick = function() {
@@ -28,12 +32,15 @@
 			//this. : 클릭한 대상 객체
 			this.textContent = Number(this.textContent)+1;
 		};
+		function call(){
+			alert("호출");
+		}
 	};
 	//ex) <h3 id="h3Obj">에 숫자0을 넣어놓고, h3를 클릭하면 카운트가 올라가게 처리하세요.
 </script>
 </head>
 <body>
-   <h2></h2>
+   <h2 onclick="call()"></h2>
    <button id="button-a">ButtonA</button>
    <button id="button-b">ButtonB</button>
    <h1>Button A - <span id="counter-a">0</span></h1>

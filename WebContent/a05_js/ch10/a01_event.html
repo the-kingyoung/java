@@ -5,11 +5,25 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 /*
-1. 이벤트 키본 개념.
+1. 이벤트 기본 개념.
 	window.onload=function(){ 처리 내용 };
+	window : 이벤트 처리할 대상 객체
 	load : 이벤트 이름/ 이벤트 타입
 	onload : 이벤트 속성
 	function(){} : 이벤트 리스트, 이벤트 핸들러
+		this : 이벤트를 처리하는 대상객체를 지칭 : window
+	ex) var h1Obj = document.querySelector("h1");
+	h1Obj.onclick = function(){
+		this.innerText = "이벤트가 수행됨";
+		this.style.backgroundColor = "yellow";
+	}
+	<h2 onclick="call()"></h1> 
+	<script>
+		function call(){
+			this.innerText = "이벤트가 수행됨";
+			this.style.backgroundColor = "yellow";
+		}
+		
 2. 이벤트 설정과 해제
 	이벤트 연결
 	이벤트 객체.onXXX=function(){}
@@ -31,6 +45,13 @@
 	전달을 막는 방법
 	인터넷 익스플로러 : 이벤트 객체의 cancelBubble속성을 true
 	그 외의 브라우저 : 이벤트객체의 stopPropagation() 메서드 사용
+	<div>
+		<p>
+			<h1>
+	하위에 종속된 객체는 포함객체에 이벤트가 전달된다.		
+	그래서, 이벤트를 특정한 경우에 전달되지 못하게 처리할 때는
+	stopPropagation()을 통해서 처리한다.
+			
 */	window.onload=function(){	//화면이 다 로딩된 이후로 처리할 이벤트
 		   document.querySelector("h2").innerHTML="js 시작^^";
 		   //변수를 선언합니다.
@@ -42,6 +63,8 @@
 			   //해당 객체의 속성을 변경처리..
 			   this.style.color='orange';
 			   this.style.backgroundColor='red';
+			   console.log(this);
+			   console.log(this.style);
 
 			   //이벤트를 제거합니다.
 			   header.onclick = null;
