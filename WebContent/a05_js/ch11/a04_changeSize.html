@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//
+	window.onload=function(){
+		document.querySelector("h2").innerHTML="js 시작^^";
+		//변수를 선언합니다.
+		var child = window.open('','','width=200,height=200');
+		var width = screen.width;	//전체화면의 넓이
+		var height= screen.height;	//전체화면의 높이
+		child.moveTo(0,0);
+		child.resizeTo(width,height);
+		//1초마다 함수를 실행합니다.
+		setInterval(function(){
+			child.resizeBy(-20,-20);
+			child.moveBy(10,10);
+		},1000);
+
+		
+
+
+
+	};
+</script>
+</head>
+<body>
+   <h2></h2>
+   <input type="button" value="커졌다가 작아졌다가 윈창" id="btn01"/>
+</body>

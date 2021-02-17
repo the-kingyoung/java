@@ -12,11 +12,28 @@
 	window.onload=function(){
 		   document.querySelector("h2").innerHTML="form 요청 유효체크^^";
 		   //이벤트를 연결합니다.
+/*
+# form하위 요소객체 데이터 전송 전 유효성 체크 이벤트
+1. 대상객체 : form객체
+	document.querySelector("폼선택자")
+2. 이벤트명 : submit
+3. 이벤트 속성 : onsubmit
+4. 이벤트 핸들러 할당
+	document.querySelector("폼선택자").onsubmit=function(){
+		이벤트를 통해 처리할 핸들러 함수 선언.	
+	}
+5. return 값 처리
+	1) return 없거나 return true일대는 정상적으로 서버에 form 하위
+		요소의 값이 전송된다.
+	2) 조건문에 의해 return값이 false일때, 해당 라인에서 더이상 진행을 하지 않는다.
+	3) 이러한 특성으로 전체적인 유효성 메시지를 처리할 때는 마지막 라인에서
+		return에 대한 처리를 하여야 한다.
+ */
 		   document.getElementById('my-form').onsubmit=function(){
 			   var name = document.getElementById("name").value;
 			   if(name==""){
 				   alert("이름을 입력하세요");
-				   return false;
+				   return false;	// 리턴이 false가 되기때문에 중단처리된다.
 			   }
 			   //변수를 선언합니다.
 			   var pass = document.getElementById('pass').value;
@@ -45,7 +62,7 @@
 			   if(id="" || id.length>16 || id.length<8){
 				   idCk.innerText = "아이디를 8~16글자로 입력해주세요";
 				   idCk.style.color="red";
-				   isValid = false;
+				   isValid = false;	//리턴값이 false이면 전송을 하지 못한다.
 			   }else{
 				   idCk.innerText = "정상 입력";
 				   idCk.style.color="blue";

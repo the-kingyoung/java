@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//
+	window.onload=function(){//화면이 다 로딩된 이후로 처리할 이벤트
+		   document.querySelector("h2").innerHTML="js 시작^^";
+			//변수를 선언합니다.
+			var child = window.open('','','width=300,height=200');
+			//출력합니다.
+			if(child){
+				child.document.write('<h1>From Parent Window</h1>');
+			}else{
+				alert('팝업 차단을 해제해주세요.')
+			}
+			//ex) 버튼을 열려라! 창문!! 클릭했을 때, 창이 열리면서,
+			//		어서오세요 라는 메시지의  window창이 열리게 하세요..
+			var openBtn = document.querySelector("#openBtn");
+			openBtn.onclick=function(){
+				var newWin = window.open("","","width=300,height=300");
+				newWin.document.write("<h2>어서오세요!!</h2>");
+			}
+			
+	};
+
+</script>
+</head>
+<body>
+   <h2></h2>
+   <input type="button" value="열려라! 창문!!" id="openBtn"/>
+</body>
