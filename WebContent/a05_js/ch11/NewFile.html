@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 
+ 
+*/
+//
+	function openWin() {
+			var win = window.open("", "", "width=300,height=300");
+			win.document.write("<h2>움직이는창</h2>")
+			var xpos = 0;
+			var ypos = 0;
+			var cnt = 0;
+			var setInt = setInterval(function() {
+				cnt++;
+				if (cnt <= 20) {
+					xpos += 10;
+				} else if (cnt <= 40) {
+					ypos += 10;
+				} else if (cnt <= 60) {
+					xpos -= 10;
+				} else if (cnt <= 80) {
+					ypos -= 10;
+				} else {
+					clearInterval(setInt);
+				}
+				win.moveBy(xpos, ypos);
+			}, 100);
+		}
+</script>
+</head>
+<body>
+   <h2 onclick="openWin()">윈도우창 열기</h2>
+</body>

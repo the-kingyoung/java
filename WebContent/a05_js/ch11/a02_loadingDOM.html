@@ -5,7 +5,9 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 /* 
- 
+window : 화면창 기준
+window.document.body.innerHTML = "출력내용"
+window.document.write("출력내용")
  
 */
 //
@@ -24,6 +26,7 @@
 			var openBtn = document.querySelector("#openBtn");
 			openBtn.onclick=function(){
 				var newWin = window.open("","","width=300,height=300");
+				//특정한 윈도우창(BOM)의 출력내용을 처리
 				newWin.document.write("<h2>어서오세요!!</h2>");
 			}
 			
