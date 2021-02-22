@@ -83,8 +83,8 @@ DROP TABLE PRODUCTs;
 CREATE SEQUENCE products_seq;
 
 INSERT INTO PRODUCTS VALUES('그릇1',products_seq.nextVal,'음식접시',5000,3,100,10,'images/bowl02.jpg','박스포장');
-INSERT INTO PRODUCTS VALUES('그릇2',products_seq.nextVal,'음식접시',5000,3,100,10,'images/bowl03.jpg','박스포장');
-INSERT INTO PRODUCTS VALUES('그릇3',products_seq.nextVal,'음식접시',5000,3,100,10,'images/bowl04.jpg','박스포장');
+INSERT INTO PRODUCTS VALUES('그릇2',products_seq.nextVal,'음식접시',6000,3,100,10,'images/bowl03.jpg','박스포장');
+INSERT INTO PRODUCTS VALUES('그릇3',products_seq.nextVal,'음식접시',7000,3,100,10,'images/bowl04.jpg','박스포장');
 
 CREATE TABLE purchase_record( -- 구매기록
    customer_id varchar2(30),
@@ -94,3 +94,13 @@ CREATE TABLE purchase_record( -- 구매기록
    purchase_step varchar2(20), -- 장바구니 단계, 구매
    purchase_step_date DATE   -- 구매단계설정날짜
 );
+
+SELECT product_name, product_price FROM PRODUCTS
+WHERE product_id=(SELECT max(product_id)
+            FROM PRODUCTS);
+           
+SELECT product_name, product_price FROM products
+ORDER BY PRODUCT_ID ;
+           
+SELECT product_name, product_price FROM PRODUCTS
+WHERE product_id <(SELECT max(PRODUCT_ID) FROM products);
