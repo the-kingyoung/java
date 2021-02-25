@@ -26,11 +26,112 @@ INSERT INTO purchase_record values('lala',16,'볼볼홈파티 소서',11,'구매
 INSERT INTO purchase_record values('gilgil',17,'볼볼홈파티 그릇',8,'구매완료',sysdate-18);
 SELECT * FROM purchase_record
 WHERE purchase_step='장바구니'
-ORDER BY purchase_step_date asc ;
+ORDER BY purchase_id asc ;
 
 DROP TABLE PURCHASE_RECORD ;
 
 SELECT * FROM PURCHASE_RECORD;
+
+
+SELECT rownum, p.* from(
+	SELECT * FROM products
+	ORDER BY product_rate DESC
+	)p
+	WHERE rownum BETWEEN 1 AND 4;
+
+
+SELECT * FROM products;
+DROP TABLE products;
+DROP SEQUENCE products_seq;
+CREATE SEQUENCE products_seq;
+
+CREATE TABLE products( --물품
+   product_name varchar2(50),
+   product_id NUMBER,
+   product_category varchar2(30),
+   product_price NUMBER,
+   product_stock NUMBER,
+   product_rate NUMBER,
+   product_img_src varchar2(300)
+);
+
+CREATE SEQUENCE  products_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 9999999 
+    MINVALUE 1
+    CACHE 20
+    NOORDER 
+    NOCYCLE;
+SELECT * FROM products;
+INSERT INTO PRODUCTS VALUES('그릇1',products_seq.nextVal,'그릇/홈세트',5000,10,16,'images/detail_img3.jpg');
+INSERT INTO PRODUCTS VALUES('그릇2',products_seq.nextVal,'그릇/홈세트',6000,10,15,'images/detail_img2.jpg');
+INSERT INTO PRODUCTS VALUES('그릇3',products_seq.nextVal,'그릇/홈세트',7000,10,14,'images/detail_img1.jpg');
+INSERT INTO PRODUCTS VALUES('그릇4',products_seq.nextVal,'그릇/홈세트',8000,10,13,'images/bowl08.jpg');
+INSERT INTO PRODUCTS VALUES('그릇5',products_seq.nextVal,'그릇/홈세트',9000,10,12,'images/bowl07.jpg');
+INSERT INTO PRODUCTS VALUES('그릇6',products_seq.nextVal,'그릇/홈세트',9000,10,11,'images/bowl06.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티 스푼',products_seq.nextVal,'그릇/홈세트',10000,10,10,'images/detail_img1.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티 그릇',products_seq.nextVal,'그릇/홈세트',20000,10,9,'images/detail_img2.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티 주병세트',products_seq.nextVal,'그릇/홈세트',8700,10,8,'images/detail_img3.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티 시리얼',products_seq.nextVal,'그릇/홈세트',7000,10,7,'images/detail_img4.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티 소서',products_seq.nextVal,'그릇/홈세트',6000,10,6,'images/detail_img5.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티1',products_seq.nextVal,'그릇/홈세트',10000,50,5,'images/list_img1.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티2',products_seq.nextVal,'그릇/홈세트',10000,50,4,'images/list_img2.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티3',products_seq.nextVal,'그릇/홈세트',10000,50,3,'images/list_img3.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티4',products_seq.nextVal,'그릇/홈세트',10000,50,2,'images/list_img4.jpg');
+INSERT INTO PRODUCTS VALUES('볼볼홈파티5',products_seq.nextVal,'그릇/홈세트',10000,50,1,'images/list_img5.jpg');
+
+SELECT * FROM products;
+
+
+SELECT p.*, purchase_step, PURCHASE_ID 
+FROM PURCHASE_RECORD pr, PRODUCTS p 
+WHERE pr.PRODUCT_NAME = p.PRODUCT_NAME
+AND PURCHASE_STEP ='장바구니'
+AND customer_id = 'test';
+
+
+
+UPDATE purchase_record
+SET  purchase_step='구매완료'
+WHERE PURCHASE_ID =4;
+SELECT * FROM PURCHASE_RECORD;
+SELECT * FROM PRODUCTS;
+
+
+
+
+
+
+
+
+
+CREATE TABLE customer (   
+   customer_id varchar2(30),
+   pw varchar2(30),
+   name varchar2(30),
+   address varchar2(200),
+   email varchar2(40),
+   phone varchar2(20),
+   gender char(1), -- 'M','F'
+   birth_date DATE,
+   reg_date DATE -- 가입일
+);
+
+INSERT INTO customer values('himan','7777','홍길동','서울시 강남구 역삼동','himan@gmail.com','010-1234-1234','F',to_date('1995-08-16','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('hiboy','1111','김길동','서울시 강남구 역삼동','hiboy@gmail.com','010-1111-1111','M',to_date('1994-12-11','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('hihi','1212','강길동','경기도 성남시 분당구','hihi@gmail.com','010-3333-5555','F',to_date('1993-11-23','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('leedong','6666','이동이','서울시 서초구','leedong@gmail.com','010-5566-5656','F',to_date('1996-04-23','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('kangkang','3333','이강강','부산 수영구','kangkang@gmail.com','010-8888-8888','F',to_date('1992-08-16','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('leelee','5892','이이삼','경기도 광주시','leelee@gmail.com','010-3333-1212','M',to_date('1990-01-02','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('honghong','1234','홍홍동','서울시 광진구','honghong@gmail.com','010-1010-1010','M',to_date('1991-10-21','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('lala','9999','라길동','서울 동작구','lalala@gmail.com','010-0000-2222','F',to_date('1993-11-11','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('admin','1111','관리자','서울시 강남구 역삼동','admin@gmail.com','010-1111-1111','F',to_date('1994-02-02','YYYY-MM-DD'),sysdate);
+INSERT INTO customer values('test','2222','이탁구','서울 강남구','test@gmail.com','010-1234-5678','F',to_date('1993-11-11','YYYY-MM-DD'),sysdate);
+
+SELECT * FROM customer;
+
+
 
 CREATE TABLE review( --리뷰
    customer_id varchar2(30),
@@ -76,92 +177,5 @@ INSERT INTO review values('kkk123',re_id_sequence.nextval,'보통','재구매할
 
      SELECT * FROM review;
 
-
-SELECT rownum, p.* from(
-	SELECT * FROM products
-	ORDER BY product_rate DESC
-	)p
-	WHERE rownum BETWEEN 1 AND 4;
-
-
-SELECT * FROM products;
-DROP TABLE products;
-CREATE SEQUENCE products_seq;
-
-CREATE TABLE products( --물품
-   product_name varchar2(50),
-   product_id NUMBER,
-   product_category varchar2(30),
-   product_price NUMBER,
-   product_stock NUMBER,
-   product_rate NUMBER,
-   product_img_src varchar2(300)
-);
-
-INSERT INTO PRODUCTS VALUES('그릇1',products_seq.nextVal,'그릇/홈세트',5000,10,16,'images/detail_img3.jpg');
-INSERT INTO PRODUCTS VALUES('그릇2',products_seq.nextVal,'그릇/홈세트',6000,10,15,'images/detail_img2.jpg');
-INSERT INTO PRODUCTS VALUES('그릇3',products_seq.nextVal,'그릇/홈세트',7000,10,14,'images/detail_img1.jpg');
-INSERT INTO PRODUCTS VALUES('그릇4',products_seq.nextVal,'그릇/홈세트',8000,10,13,'images/bowl08.jpg');
-INSERT INTO PRODUCTS VALUES('그릇5',products_seq.nextVal,'그릇/홈세트',9000,10,12,'images/bowl07.jpg');
-INSERT INTO PRODUCTS VALUES('그릇6',products_seq.nextVal,'그릇/홈세트',9000,10,11,'images/bowl06.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티 스푼',products_seq.nextVal,'그릇/홈세트',10000,10,10,'images/detail_img1.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티 그릇',products_seq.nextVal,'그릇/홈세트',20000,10,9,'images/detail_img2.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티 주병세트',products_seq.nextVal,'그릇/홈세트',8700,10,8,'images/detail_img3.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티 시리얼',products_seq.nextVal,'그릇/홈세트',7000,10,7,'images/detail_img4.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티 소서',products_seq.nextVal,'그릇/홈세트',6000,10,6,'images/detail_img5.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티1',products_seq.nextVal,'그릇/홈세트',10000,50,5,'images/list_img1.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티2',products_seq.nextVal,'그릇/홈세트',10000,50,4,'images/list_img2.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티3',products_seq.nextVal,'그릇/홈세트',10000,50,3,'images/list_img3.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티4',products_seq.nextVal,'그릇/홈세트',10000,50,2,'images/list_img4.jpg');
-INSERT INTO PRODUCTS VALUES('볼볼홈파티5',products_seq.nextVal,'그릇/홈세트',10000,50,1,'images/list_img5.jpg');
-
-
-
-
-
-
-
-SELECT p.*, purchase_step, PURCHASE_ID 
-FROM PURCHASE_RECORD pr, PRODUCTS p 
-WHERE pr.PRODUCT_NAME = p.PRODUCT_NAME
-AND PURCHASE_STEP ='장바구니';
-
-
-UPDATE purchase_record
-SET  purchase_step='구매완료'
-WHERE product_id = '';
-
-
-
-
-
-
-
-
-
-CREATE TABLE customer (   
-   customer_id varchar2(30),
-   pw varchar2(30),
-   name varchar2(30),
-   address varchar2(200),
-   email varchar2(40),
-   phone varchar2(20),
-   gender char(1), -- 'M','F'
-   birth_date DATE,
-   reg_date DATE -- 가입일
-);
-
-INSERT INTO customer values('himan','7777','홍길동','서울시 강남구 역삼동','himan@gmail.com','010-1234-1234','F',to_date('1995-08-16','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('hiboy','1111','김길동','서울시 강남구 역삼동','hiboy@gmail.com','010-1111-1111','M',to_date('1994-12-11','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('hihi','1212','강길동','경기도 성남시 분당구','hihi@gmail.com','010-3333-5555','F',to_date('1993-11-23','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('leedong','6666','이동이','서울시 서초구','leedong@gmail.com','010-5566-5656','F',to_date('1996-04-23','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('kangkang','3333','이강강','부산 수영구','kangkang@gmail.com','010-8888-8888','F',to_date('1992-08-16','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('leelee','5892','이이삼','경기도 광주시','leelee@gmail.com','010-3333-1212','M',to_date('1990-01-02','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('honghong','1234','홍홍동','서울시 광진구','honghong@gmail.com','010-1010-1010','M',to_date('1991-10-21','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('lala','9999','라길동','서울 동작구','lalala@gmail.com','010-0000-2222','F',to_date('1993-11-11','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('admin','1111','관리자','서울시 강남구 역삼동','admin@gmail.com','010-1111-1111','F',to_date('1994-02-02','YYYY-MM-DD'),sysdate);
-INSERT INTO customer values('test','2222','이탁구','서울 강남구','test@gmail.com','010-1234-5678','F',to_date('1993-11-11','YYYY-MM-DD'),sysdate);
-
-SELECT * FROM customer;
 
 
